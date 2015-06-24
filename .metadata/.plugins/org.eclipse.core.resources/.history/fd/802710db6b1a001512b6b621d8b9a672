@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
+
+public class Graph {
+	HashMap<Integer, Node> nodes;
+	HashMap<Integer, ArrayList<Node>> adList;
+	
+	public Graph(HashMap<Integer, Node> V,HashMap<Integer, ArrayList<Node>> E) {
+		nodes = V;
+		adList = E;
+		
+	}
+	public Graph(){
+		nodes = new HashMap<Integer, Node>();
+		adList = new HashMap<Integer, ArrayList<Node>>();
+	}
+	
+	//SETter 
+	
+	//GETter 
+	
+	public int nodeSize(){
+		return nodes.size();
+	}
+	
+	public Node getNode(int index){
+		if(index < nodes.size()&& index >=0){
+			return nodes.get(index);
+		}else{
+			throw new RuntimeException("GetNode Error: Bereichsüberschreitung");
+		}
+	}
+	
+	//Operations
+	public void insert(Node a, Node b){
+		nodes.put(a.getKey(), a);
+		nodes.put(b.getKey(), b);
+		adList.get(a.getKey()).add(b);
+		adList.get(b.getKey()).add(a);
+	}
+	
+	//Visualization
+	public void printGraph(){
+		System.out.println(nodes.toString());
+		System.out.println(adList.toString());
+		for(Node n : nodes.values()){
+			System.out.println(n.getKey());
+		}
+	}
+}

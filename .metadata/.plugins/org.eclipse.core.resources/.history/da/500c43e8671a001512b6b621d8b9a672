@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+
+
+public class Graph {
+	HashSet<Node> nodes;
+	ArrayList<Edge> edges;
+	public Graph(HashSet<Node> V,ArrayList<Edge> E) {
+		nodes = V;
+		edges = E;
+	}
+	public Graph(){
+		nodes = new HashSet<Node>();
+		edges = new ArrayList<Edge>();
+	}
+	
+	//SETter 
+	
+	//GETter 
+	public int edgeSize(){
+		return edges.size();
+	}
+	
+	//Operations
+	public void insert(Node a, Node b){
+		nodes.add(a);
+		nodes.add(b);
+		edges.add(new Edge(a, b));
+	}
+	
+	//Visualization
+	public void printGraph(){
+		for(int i = 0; i<edgeSize(); i++){
+			Node a,b;
+			a = edges.get(i).getA();
+			b = edges.get(i).getB();
+			System.out.println(a.getKey()+"->"+b.getKey());
+		}
+	}
+}

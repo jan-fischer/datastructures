@@ -1,0 +1,29 @@
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+
+public class Edge {
+	Node a,b;
+	
+	public Edge(Node a, Node b) {
+		this.a = a;
+		this.b = b;
+	}
+	
+	
+
+	//GETter
+	public Node[] getNodes(){
+		Node[] nodes = {a,b};
+		return nodes;
+	}
+	
+	public Node getA(){
+		return a;
+	}
+	
+	public Node getB(){
+		return b;
+	}
+}

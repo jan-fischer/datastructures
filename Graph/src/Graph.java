@@ -52,7 +52,7 @@ public class Graph {
 		for(Node n : nodes.values()){
 			System.out.print(n.getKey());
 			for(Node t: adList.get(n.getKey()).values()){
-				System.out.print("-> " + t.getKey());
+				System.out.print(" -|-> " + t.getKey());
 			}
 			System.out.println();
 			

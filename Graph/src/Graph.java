@@ -40,8 +40,10 @@ public class Graph {
 		nodes.put(b.getKey(), b);
 		if(adList.get(a.getKey())== null) adList.put(a.getKey(), new HashMap<Integer, Node>());
 		if(adList.get(b.getKey())== null) adList.put(b.getKey(), new HashMap<Integer, Node>());
+		if(a.getKey() != b.getKey()){
 		adList.get(a.getKey()).put(b.getKey(),b);
 		adList.get(b.getKey()).put(a.getKey(),a);
+		}
 	}
 	
 	//Visualization
@@ -54,6 +56,26 @@ public class Graph {
 			}
 			System.out.println();
 			
+		}
+	}
+	
+	public void printAdMatrix(){
+		System.out.print("   +");
+		for(Node n:nodes.values()) System.out.print("\t"+n.getKey());
+		System.out.println();
+		for(Node n:nodes.values()) System.out.print("------\t");
+		System.out.println();
+		for(Node n: nodes.values()){
+			System.out.print(n.getKey()+"|\t");
+			for(Node t: nodes.values()){
+				if(adList.get(n.getKey()).get(t.getKey())!=null){
+					System.out.print("1\t");
+				}else{
+					System.out.print("0\t");
+				}
+				
+			}
+			System.out.println();
 		}
 	}
 }

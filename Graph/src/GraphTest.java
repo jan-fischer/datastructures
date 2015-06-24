@@ -1,7 +1,7 @@
 public class GraphTest {
 	public static void main(String[] args) {
 		Graph g = new Graph();
-		for(int i = 0; i<=1000; i++){
+		for(int i = 0; i<=5; i++){
 			g.insert(new Node(i*2), new Node(i*2+1));
 			
 			int rand = (int) (Math.random()*i+1);
@@ -13,5 +13,6 @@ public class GraphTest {
 		
 		
 		g.printAdList();
+		g.printAdMatrix();
 	}
 }
